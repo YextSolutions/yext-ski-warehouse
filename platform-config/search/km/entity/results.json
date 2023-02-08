@@ -36,7 +36,8 @@
     ],
     "c_headingText": "Our Reccomendations",
     "c_subHeadingText": "Skis based on your selections.",
-    "name": "Search Results"
+    "name": "Search Results",
+    "slug": "results"
   },
   "entityType": "ce_searchPage",
   "folder": "yext/root",

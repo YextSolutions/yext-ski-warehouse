@@ -6,6 +6,7 @@
   "fields": [
     "c_abilityLevel",
     "c_gender",
+    "c_isPublished",
     "c_price",
     "c_terrain",
     "description",

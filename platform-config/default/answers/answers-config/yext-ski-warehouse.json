@@ -14,7 +14,8 @@
         "c_abilityLevel.name",
         "c_abilityLevel.c_icon",
         "c_terrain.name",
-        "c_terrain.c_icon"
+        "c_terrain.c_icon",
+        "slug"
       ],
       "entityTypes": [
         "ce_skis"
@@ -47,6 +48,7 @@
     "disablePopularQueries": false,
     "verticalPromptsOnEmpty": false,
     "popularQueriesBlacklistedTerms": [],
+    "popularQueriesBlacklistedRegex": [],
     "universalPrompts": [],
     "verticalPrompts": {
       "skis": [

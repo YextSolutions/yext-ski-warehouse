@@ -76,6 +76,7 @@
     },
     {
       "entityType": "product",
+      "defaultFieldEligibilityGroup": "product.default",
       "disabled": true
     },
     {

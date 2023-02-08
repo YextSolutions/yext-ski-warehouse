@@ -1,0 +1,13 @@
+{
+  "$id": "1262162023",
+  "$schema": "https://schema.yext.com/config/km/saved-filter/v1",
+  "name": "Published Skis",
+  "filter": {
+    "entityField": [
+      {
+        "fieldId": "c_isPublished",
+        "searchBool": "TRUE"
+      }
+    ]
+  }
+}

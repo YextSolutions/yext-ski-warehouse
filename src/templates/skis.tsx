@@ -27,7 +27,7 @@ export const config: TemplateConfig = {
       "c_terrain.c_icon",
     ],
     filter: {
-      savedFilterIds: [YEXT_PUBLIC_SKI_FILTER],
+      entityTypes: ["ce_skis"],
     },
     localization: {
       locales: ["en"],

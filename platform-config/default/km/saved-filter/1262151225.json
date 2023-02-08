@@ -1,0 +1,15 @@
+{
+  "$id": "1262151225",
+  "$schema": "https://schema.yext.com/config/km/saved-filter/v1",
+  "name": "All Skis",
+  "filter": {
+    "entityType": [
+      {
+        "entityTypeId": [
+          "ce_skis"
+        ],
+        "type": "IS"
+      }
+    ]
+  }
+}

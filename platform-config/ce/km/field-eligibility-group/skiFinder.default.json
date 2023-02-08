@@ -9,7 +9,9 @@
     "c_finderDescriptionText",
     "c_finderHeadingText",
     "c_headingText",
-    "c_subHeadingText"
+    "c_isPublished",
+    "c_subHeadingText",
+    "slug"
   ],
   "required": []
 }

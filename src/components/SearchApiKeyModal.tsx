@@ -2,18 +2,24 @@ import * as React from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 
-const searchApiKey = YEXT_PUBLIC_SEARCH_API_KEY;
+type SearchApiKeyModalProps = {
+  businessId: string;
+  experienceKey: string;
+};
 
-const SearchApiKeyModal = () => {
-  const [isOpen, setIsOpen] = useState(searchApiKey === undefined);
+const SearchApiKeyModal = ({
+  businessId,
+  experienceKey,
+}: SearchApiKeyModalProps) => {
+  const [isOpen, setIsOpen] = useState(YEXT_PUBLIC_SEARCH_API_KEY === "");
 
   function closeModal() {
     setIsOpen(false);
   }
 
-  function openModal() {
-    setIsOpen(true);
-  }
+  const getSearchExperienceUrl = () => {
+    return `https:sandbox.yext.com/s/${businessId}/search/experiences/configuration/${experienceKey}/details`;
+  };
 
   return (
     <>
@@ -43,14 +49,27 @@ const SearchApiKeyModal = () => {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  <Dialog.Title
-                    className="text-lg font-medium leading-6 text-red-500"
-                  >
+                  <Dialog.Title className="text-lg font-medium leading-6 text-red-500">
                     No Search API Key Defined
                   </Dialog.Title>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
-                      You need to add a Search API Key to a .env file. To find your Search API Key, go to Search > Experience Details in the Yext Platform UI. Once you add your Search API Key, restart your dev server.
+                      You need to add your Search API Key to the .env file. To
+                      find your Search API Key
+                      <a
+                        href={getSearchExperienceUrl()}
+                        target="_blank"
+                        className="text-blue-400 hover:underline px-0.5"
+                        rel="noreferrer"
+                      >
+                        click here.
+                      </a>
+                      Once you add your Search API Key, restart your dev server
+                      with
+                      <span className="text-gray-700 font-mono bg-gray-200 ml-1">
+                        npm run dev
+                      </span>
+                      .
                     </p>
                   </div>
 

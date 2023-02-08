@@ -9,10 +9,12 @@ import {
 } from "@yext/pages";
 import {
   provideHeadless,
+  SandboxEndpoints,
   SearchHeadlessProvider,
 } from "@yext/search-headless-react";
 import Header from "../components/Header";
 import SearchResults from "../components/SearchResults";
+import SearchApiKeyModal from "../components/SearchApiKeyModal";
 
 export const config: TemplateConfig = {
   stream: {
@@ -26,7 +28,7 @@ export const config: TemplateConfig = {
       "c_filters.filterItems.name",
       "c_filters.filterItems.description",
       "c_filters.filterItems.primaryPhoto",
-      "slug"
+      "slug",
     ],
     filter: {
       entityIds: ["search_results"],
@@ -62,14 +64,16 @@ export const getHeadConfig: GetHeadConfig<
 };
 
 const searcher = provideHeadless({
-  apiKey: YEXT_PUBLIC_SEARCH_API_KEY || "",
+  apiKey: YEXT_PUBLIC_SEARCH_API_KEY,
   experienceKey: "yext-ski-warehouse",
   locale: "en",
   verticalKey: "skis",
+  endpoints: SandboxEndpoints,
 });
 
 const SkiFinder = ({ document }: TemplateRenderProps) => {
-  const { _site, c_headingText, c_subHeadingText, c_filters } = document;
+  const { _site, c_headingText, c_subHeadingText, c_filters, businessId } =
+    document;
   const logo = _site?.c_primaryLogo;
 
   const navBar = _site?.c_navBar;
@@ -86,6 +90,11 @@ const SkiFinder = ({ document }: TemplateRenderProps) => {
           />
         </div>
       </div>
+      {/* Once you have added your Search API Key, you can remove this component */}
+      <SearchApiKeyModal
+        businessId={businessId}
+        experienceKey="yext-ski-warehouse"
+      />
     </SearchHeadlessProvider>
   );
 };

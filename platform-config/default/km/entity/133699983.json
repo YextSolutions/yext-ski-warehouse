@@ -9,6 +9,7 @@
     "c_gender": [
       "5929891552541128688"
     ],
+    "c_isPublished": true,
     "c_terrain": [
       "1295894924104146377"
     ],
@@ -45,7 +46,8 @@
           "width": 700
         }
       }
-    ]
+    ],
+    "slug": "skis/[[entityId]]"
   },
   "entityType": "ce_skis",
   "labels": []
