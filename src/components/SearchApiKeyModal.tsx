@@ -18,7 +18,9 @@ const SearchApiKeyModal = ({
   }
 
   const getSearchExperienceUrl = () => {
-    return `https:sandbox.yext.com/s/${businessId}/search/experiences/configuration/${experienceKey}/details`;
+    return `https://${
+      YEXT_PUBLIC_UNIVERSE === "sandbox" ? "sandbox.yext.com" : "yext.com"
+    }/s/${businessId}/search/experiences/configuration/${experienceKey}/details`;
   };
 
   return (
@@ -59,14 +61,14 @@ const SearchApiKeyModal = ({
                       <a
                         href={getSearchExperienceUrl()}
                         target="_blank"
-                        className="text-blue-400 hover:underline px-0.5"
+                        className="px-0.5 text-blue-400 hover:underline"
                         rel="noreferrer"
                       >
                         click here.
                       </a>
                       Once you add your Search API Key, restart your dev server
                       with
-                      <span className="text-gray-700 font-mono bg-gray-200 ml-1">
+                      <span className="ml-1 bg-gray-200 font-mono text-gray-700">
                         npm run dev
                       </span>
                       .

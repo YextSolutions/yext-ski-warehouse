@@ -28,7 +28,7 @@ export const config: TemplateConfig = {
       "c_filters.filterItems.name",
       "c_filters.filterItems.description",
       "c_filters.filterItems.primaryPhoto",
-      "slug"
+      "slug",
     ],
     filter: {
       entityIds: ["ski_finder"],
@@ -72,6 +72,7 @@ const SkiFinder = ({ document }: TemplateRenderProps) => {
     c_finderDescriptionText,
     c_filters,
     _site,
+    businessId,
   } = document;
   const logo = _site?.c_primaryLogo;
   const navBar = _site?.c_navBar;
@@ -87,8 +88,9 @@ const SkiFinder = ({ document }: TemplateRenderProps) => {
     // add each filter to the url and redirect to the results page
     let url = "/results";
     filters.forEach((filter, index) => {
-      url += `${index === 0 ? "?" : "&"}${filter.filterId}=${filter.filterValue
-        }`;
+      url += `${index === 0 ? "?" : "&"}${filter.filterId}=${
+        filter.filterValue
+      }`;
     });
     window.location.href = url;
   };
@@ -131,7 +133,10 @@ const SkiFinder = ({ document }: TemplateRenderProps) => {
         />
       </div>
       {/* Once you have added your Search API Key, you can remove this component */}
-      <SearchApiKeyModal />
+      <SearchApiKeyModal
+        businessId={businessId}
+        experienceKey="yext-ski-warehouse"
+      />
     </>
   );
 };
